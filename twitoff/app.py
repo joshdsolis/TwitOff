@@ -41,7 +41,11 @@ def create_app():
         else:
             prediction = predict_user(user1, user2,
                                       request.values['tweet_text'])
-            return user1 if prediction else user2
+
+            winner = user1 if prediction else user2
+            return render_template('compare.html', title=winner, 
+                                message = 'User {} is more likely to say tweet'.format(winner))
+
 
 
     @app.route('/reset')

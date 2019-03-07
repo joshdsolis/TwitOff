@@ -9,5 +9,8 @@
     {% for tweet in tweets %}
     <li> {{ tweet.id }} - {{ tweet.text }}</li>
     {% endfor %}
+
+    <a href="#" onclick="history.go(-1)">Go Back</a>
+
 </ul>
 {% endblock %}
