@@ -16,6 +16,7 @@ scikit-learn = "*"
 sqlalchemy = "*"
 tweepy = "*"
 twython = "*"
+psycopg2 = "*"
 
 [requires]
 "python_version =" = "3.6"
