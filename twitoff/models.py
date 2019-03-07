@@ -23,3 +23,8 @@ class Tweet(DB.Model):
 
     def __repr__(self):
         return '<Tweet {}>'.format(self.text)
+
+class Avi(DB.Model):
+    """Profile pic."""
+    id = DB.Column(DB.BigInteger, primary_key=True)
+    link = DB.Column(DB.Unicode(500))

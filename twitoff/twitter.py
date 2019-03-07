@@ -2,7 +2,7 @@
 import basilica
 import tweepy
 from decouple import config
-from .models import DB, Tweet, User
+from .models import DB, Tweet, User, Avi
 
 TWITTER_AUTH = tweepy.OAuthHandler(config('TWITTER_CONSUMER_KEY'),
                                    config('TWITTER_CONSUMER_SECRET'))
@@ -34,6 +34,7 @@ def add_or_update_user(username):
                              embedding=embedding)
             db_user.tweets.append(db_tweet)
             DB.session.add(db_tweet)
+
     except Exception as e:
         print('Error processing {}: {}'.format(username, e))
         raise e
