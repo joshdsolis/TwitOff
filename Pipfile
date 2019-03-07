@@ -6,16 +6,17 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
+basilica = "*"
 flask = "*"
 flask-sqlalchemy = "*"
-sqlalchemy = "*"
-tweepy = "*"
-basilica = "*"
+gunicorn = "*"
+psycopg2 = "*"
 python-decouple = "*"
 python-dotenv = "*"
 scikit-learn = "*"
+sqlalchemy = "*"
+tweepy = "*"
 twython = "*"
-gunicorn = "*"
 
 [requires]
-python_version == "3.6"
+"python_version =" = "3.6"
