@@ -3,7 +3,7 @@ import numpy as np
 from sklearn.linear_model import LogisticRegression
 from .models import User
 from .twitter import BASILICA
-from textblob import TextBlob
+#from textblob import TextBlob
 
 
 def predict_user(user1_name, user2_name, tweet_text, cache=None):
@@ -19,10 +19,11 @@ def predict_user(user1_name, user2_name, tweet_text, cache=None):
     tweet_embedding = BASILICA.embed_sentence(tweet_text, model='twitter')
     return log_reg.predict(np.array(tweet_embedding).reshape(1, -1))
 
-
+'''
 def analyze_sentiment(user1_name, cache=None):
     user1 = User.query.filter(User.name ==user1_name).one()
     for tweet in user1.tweets:
         print(tweet.text)
         analysis = TextBlob(tweet.text)
         print(analysis.sentiment)
+'''
