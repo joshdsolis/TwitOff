@@ -22,7 +22,6 @@ def predict_user(user1_name, user2_name, tweet_text, cache=None):
 
 def analyze_sentiment(user1_name, cache=None):
     user1 = User.query.filter(User.name ==user1_name).one()
-    user1_embeddings = np.array([tweet.embedding for tweet in user1.tweets])
     for tweet in user1.tweets:
         print(tweet.text)
         analysis = TextBlob(tweet.text)
