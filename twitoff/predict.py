@@ -4,9 +4,8 @@ from sklearn.linear_model import LogisticRegression
 from .models import User
 from .twitter import BASILICA
 from textblob import TextBlob
-import nltk
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
-nltk.data.path.append('./nltk_data/')
 
 def predict_user(user1_name, user2_name, tweet_text, cache=None):
     """Determine and return which user is more likely to say a given Tweet."""
@@ -24,7 +23,6 @@ def predict_user(user1_name, user2_name, tweet_text, cache=None):
 
 def analyze_sentiment(user1_name, cache=None):
     user1 = User.query.filter(User.name ==user1_name).one()
+    analyzer = SentimentIntensityAnalyzer()
     for tweet in user1.tweets:
-        print(tweet.text)
-        analysis = TextBlob(tweet.text)
-        print(analysis.sentiment)
+        print(tweet.text, analyzer.polarity_scores(tweet))
