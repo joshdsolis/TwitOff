@@ -6,6 +6,7 @@ from .twitter import BASILICA
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import nltk
 
+nltk.data.path.append('nltk_data')
 nltk.download('vader_lexicon')
 
 def predict_user(user1_name, user2_name, tweet_text, cache=None):
