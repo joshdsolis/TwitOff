@@ -44,7 +44,7 @@ def create_app():
 
             winner = user1 if prediction else user2
             return render_template('compare.html', title=winner, 
-                                message = 'User {} is more likely to say tweet'.format(winner))
+                                message = 'User {} is more likely to say {'tweet_text'}'.format(winner))
     
 
 
