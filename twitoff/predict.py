@@ -3,8 +3,10 @@ import numpy as np
 from sklearn.linear_model import LogisticRegression
 from .models import User
 from .twitter import BASILICA
-from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+import nltk
 
+nltk.download('vader_lexicon')
 
 def predict_user(user1_name, user2_name, tweet_text, cache=None):
     """Determine and return which user is more likely to say a given Tweet."""

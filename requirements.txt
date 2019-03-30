@@ -7,4 +7,5 @@ python-dotenv
 scikit-learn 
 gunicorn 
 psycopg2
-vadersnetiment
+vadersentiment
+nltk
