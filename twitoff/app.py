@@ -46,8 +46,14 @@ def create_app():
             
             winner = user1 if prediction else user2
             avg = get_past_tweet_sentiment(winner)
+            if avg == 0:
+                outcome = "Neutral"
+            elif avg>1:
+                outcome = "Positive"
+            else: 
+                outcome = "Negative"
             return render_template('compare.html', title=winner, 
-                                message = "User {} is more likely to say '{}', and their past score is {}".format(winner, request.values['tweet_text'], avg))
+                                message = "User {} is more likely to say '{}', and their past tweets average sentiment is {}, {}".format(winner, request.values['tweet_text'], avg, outcome))
                              
     
     
