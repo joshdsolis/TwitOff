@@ -5,6 +5,8 @@ from .models import DB, User
 from .predict import predict_user
 from .twitter import add_or_update_user
 
+
+
 def create_app():
     """Create and configure an instance of the Flask application."""
     app = Flask(__name__)
@@ -45,6 +47,7 @@ def create_app():
             winner = user1 if prediction else user2
             return render_template('compare.html', title=winner, 
                                 message = "User {} is more likely to say '{}'".format(winner, request.values['tweet_text']))
+    
     
 
 
