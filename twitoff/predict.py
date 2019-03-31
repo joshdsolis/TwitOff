@@ -19,3 +19,14 @@ def predict_user(user1_name, user2_name, tweet_text, cache=None):
     tweet_embedding = BASILICA.embed_sentence(tweet_text, model='twitter')
     return log_reg.predict(np.array(tweet_embedding).reshape(1, -1))
 
+def get_past_tweet_sentiment(user_name):
+    scores = []
+    user = User.query.filter(User.name == user_name).one()
+
+    for tweet in user.tweets:
+        analysis = TextBlob(tweet)
+        scores.append(analysis.sentiment.polarity)
+    
+    avg = sum(scores)/len(scores)
+
+    return avg
