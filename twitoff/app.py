@@ -53,7 +53,7 @@ def create_app():
             else: 
                 outcome = "User has been Negative lately"
             return render_template('compare.html', title=winner, 
-                                message = "User {} is more likely to say '{}', and their past tweets average sentiment is {}. {}".format(winner, request.values['tweet_text'], avg, outcome))
+                                message = "User {} is more likely to say '{}', and their past tweets average sentiment is {:4.2f}. {}".format(winner, request.values['tweet_text'], avg, outcome))
                              
     
     
