@@ -25,7 +25,7 @@ def get_past_tweet_sentiment(user_name):
 
     for tweet in winner.tweets:
         analysis = TextBlob(tweet)
-        scores.append(analysis.sentiment.polarity)
+        scores.append(analysis.sentiment[0])
     
     avg = sum(scores)/len(scores)
 
