@@ -22,11 +22,11 @@ def predict_user(user1_name, user2_name, tweet_text, cache=None):
 def get_past_tweet_sentiment(user_name):
     scores = []
     winner = User.query.filter(User.name == user_name).one()
-    parsed_tweet = {}
+    tw = []
     for tweet in winner.tweets:
-        parsed_tweet['text'] = tweet.text
+        tw.append(tweet.text)
 
-    for tweet in parsed_tweet['text']:
+    for tweet in tw:
         analysis = TextBlob(str(tweet))
         scores.append(analysis.sentiment.polarity)
     
